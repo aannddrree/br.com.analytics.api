@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.analytics.api.contant.Contants;
+import br.com.analytics.api.contant.Constants;
 import br.com.analytics.api.model.Conta;
 import br.com.analytics.api.service.ContaService;
 
@@ -22,27 +22,27 @@ public class ContaController {
 	@Autowired
 	private ContaService contaService;
 
-	@PostMapping(Contants.API_ENDPOINT_CONTA)
+	@PostMapping(Constants.API_ENDPOINT_CONTA)
 	public Conta save(@RequestBody Conta conta) {
 		return contaService.save(conta);
 	}
 	
-	@GetMapping(Contants.API_ENDPOINT_CONTA)
+	@GetMapping(Constants.API_ENDPOINT_CONTA)
 	public List<Conta> findAll() {
 		return contaService.findAll();
 	}
 
-	@PutMapping(Contants.API_ENDPOINT_CONTA)
+	@PutMapping(Constants.API_ENDPOINT_CONTA)
 	public Conta update(@RequestBody Conta conta) {
 		return this.save(conta);
 	}
 
-	@GetMapping(Contants.API_ENDPOINT_CONTA + "/{id}")
+	@GetMapping(Constants.API_ENDPOINT_CONTA + "/{id}")
 	public Optional<Conta> findById(@PathVariable("id") int id) {
 		return contaService.findById(id);
 	}
 
-	@DeleteMapping(Contants.API_ENDPOINT_CONTA + "/{id}")
+	@DeleteMapping(Constants.API_ENDPOINT_CONTA + "/{id}")
 	public void delete(@PathVariable("id") int id) {
 		contaService.delete(id);
 	}
